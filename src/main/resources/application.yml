@@ -1,0 +1,37 @@
+# --------------------------------------------------------------------------
+# Server Configuration
+# --------------------------------------------------------------------------
+server:
+  # The port on which the OAuth2 microservice will run
+  port: 9080
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            # Google OAuth2 client ID, typically stored in environment variables
+            client-id: ${GOOGLE_CLIENT_ID}
+            # Google OAuth2 client secret, also stored securely
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+                 # Required scope for OpenID Connect (used for authentication)
+                - openid
+                # Access to the user's basic profile information
+                - profile
+               # Access to the user's email address
+                - email
+            # The callback URI after successful my_login.html
+            redirect-uri: http://localhost:9080/login/oauth2/code/google
+
+        provider:
+          google:
+            # Google endpoint to initiate authorization
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            # Endpoint to exchange the authorization code for tokens
+            token-uri: https://oauth2.googleapis.com/token
+            # Endpoint to retrieve the authenticated user's info
+            user-info-uri: https://openidconnect.googleapis.com/v1/userinfo
+            # The unique identifier for the user as provided by Google
+            user-name-attribute: sub
