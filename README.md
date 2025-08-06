@@ -93,12 +93,15 @@ Variable Reference
 
 
 ## API Endpoints
-| Method | Endpoint                       | Description                                                       |
-|--------|--------------------------------|-------------------------------------------------------------------|
-| `GET`  | `/` or `/home`                 | Public home page (e.g., `home.html`)                              |
-| `GET`  | `/dashboard`                   | Protected user dashboard (e.g., `dashboard.html`); requires login |
-| `GET`  | `/login`                       | Redirects to custom login page (`my_login.html`)                  |
-| `GET`  | `/oauth2/authorization/google` | Starts the OAuth2 login flow using Google                         |
+| Method | Endpoint                       | Auth Required | Description                                                          |
+|--------|--------------------------------|---------------|----------------------------------------------------------------------|
+| `GET`  | `/`                            | ❌ No          | Public home page (renders `home.html`)                               |
+| `GET`  | `/my_login`                    | ❌ No          | Custom login page (renders `my_login.html` if defined)               |
+| `GET`  | `/dashboard`                   | ✅ Yes         | User dashboard after successful login (renders `dashboard.html`)     |
+| `GET`  | `/oauth2/authorization/google` | ❌ Redirect    | Triggers Google OAuth2 login via Spring Security                     |
+| `GET`  | `/internal/token`              | ✅ Yes         | Internal endpoint to get the authenticated user's raw ID Token (JWT) |
+| `GET`  | `/logout`                      | ✅ Yes         | Logs the user out                                                    |
+                       |
 
 
 
