@@ -22,7 +22,7 @@ spring:
                 - profile
                # Access to the user's email address
                 - email
-            # The callback URI after successful my_login.html
+            # The callback URI after successful login.html
             redirect-uri: http://localhost:9080/login/oauth2/code/google
 
         provider:

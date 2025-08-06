@@ -50,7 +50,9 @@ public class AuthController {
         log.info("ID Token: {}", idToken);
 
         // Use the token for backend logic here (e.g. API call)
-        model.addAttribute("name", user.getName());
+        // Get user's full name from OIDC attributes
+        String fullName = user.getAttribute("name");
+        model.addAttribute("name", fullName);
         model.addAttribute("email", user.getEmail());
         model.addAttribute("picture", user.getPicture());
 
