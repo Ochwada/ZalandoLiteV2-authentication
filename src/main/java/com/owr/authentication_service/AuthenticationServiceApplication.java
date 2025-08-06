@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * File: AuthenticationServiceApplication.java
  * Author: Ochwada
  * Date: Wednesday, 06.Aug.2025, 1:56 PM
- * Description:
+ * Description: Main entry point of the system
  * *******************************************************
  */
 
