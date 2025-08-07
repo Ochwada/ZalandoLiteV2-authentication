@@ -45,7 +45,7 @@ public class AuthController {
     public String dashboard(Model model, @AuthenticationPrincipal OidcUser user) {
 
         // Get the token value
-        String idToken = user.getIdToken().getTokenValue();
+        String idToken = user.getIdToken().getTokenValue(); // Logs only to backend terminal
         // log the token in terminal
         log.info("ID Token: {}", idToken);
 

@@ -1,12 +1,15 @@
-# 🔐 ZalandoLite V2 - Authentication
+# 🔐  Authentication Service – ZalandoLite V2 (Microservice 1)
 
 ---
+
 ###   🔗 [ZalandoLite V2  🍀 Overview Repository ](https://github.com/Ochwada/ZalandoLiteV2-MicroservicesArchitecture)
- Microservices ⬇️ part of **ZalandoLite V2**
+Microservices ⬇️ part of **ZalandoLite V2**
 #### 🖇️ [Microservice 1: Authentication Service](https://github.com/Ochwada/ZalandoLiteV2-authentication)
+#### 🖇️ [Microservice 2: Product Service](https://github.com/reyhanovelek/ZalandoLiteV2-Product)
+#### 🖇️ [Microservice 3: Inventory Service](https://github.com/Ochwada/ZalandoLiteV2-inventory)
+#### 🖇️ [Microservice 5: Order Service](https://github.com/Ochwada/ZalandoLiteV2-order)
 
-
----
+--- 
 ##  About Authentication Service
 
 The  **Authentication Service**, is a lightweight, modular microservice in the **ZalandoLite** ecosystem, purpose-built 
@@ -23,6 +26,25 @@ authentication flow, seamlessly integrable into modern microservice architecture
 - Modular and easily customizable for additional providers
 - Plug-and-play integration with microservice ecosystems
 - Built using **Spring Boot**, **Spring Security**, and **Java 17+**
+
+## 🔁 Token Flow (Implicit, Secure, Backend-Only)
+
+### ✅ Login
+
+- Users log in via **Google OAuth** using Spring Security's OIDC (`OidcUser`).
+- Token is available only on the **backend** — never shown in the browser.
+
+### 🧠 Token Storage
+
+- The user's **ID Token** is stored in the authenticated session after login.
+- No need for frontend storage (no localStorage/sessionStorage/cookies exposed to browser).
+
+### 🔄 Internal Token Retrieval
+
+Other microservices silently fetch the token via:
+
+> GET  http://localhost:9080/internal/token?userId={customerId}
+
 
 ## Project Structure
 ```yaml
