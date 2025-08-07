@@ -92,9 +92,7 @@ Variable Reference
 | `GET`  | `/dashboard`                   | ✅ Yes         | User dashboard after successful login (renders `dashboard.html`)     |
 | `GET`  | `/oauth2/authorization/google` | ❌ Redirect    | Triggers Google OAuth2 login via Spring Security                     |
 | `GET`  | `/internal/token`              | ✅ Yes         | Internal endpoint to get the authenticated user's raw ID Token (JWT) |
-| `GET`  | `/logout`                      | ✅ Yes         | Logs the user out                                                    |
-                       |
-
+                       
 
 
 ## Results Overview
