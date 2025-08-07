@@ -125,26 +125,26 @@ http://localhost:9080/oauth2/authorization/google
 
 
 - To get the token , it will be logged in your terminal as shown below
-![img_1.png](img_1.png)
+![img_1.png](assets/img_1.png)
 ---
 
 ## Dockerization
 
-![img_2.png](img_2.png)
+![img_2.png](assets/img_2.png)
 
  - Running, this shows that the `.env `file is read  and the variables are fetched  and set successfully
 
-![img_3.png](img_3.png)
+![img_3.png](assets/img_3.png)
 
 - On the browser and visit (using docker):
 ```yaml
 http://localhost:9080
 ```
-![img_4.png](img_4.png)
+![img_4.png](assets/img_4.png)
 
-![img_5.png](img_5.png)
+![img_5.png](assets/img_5.png)
 
-![img_6.png](img_6.png)
+![img_6.png](assets/img_6.png)
 ## Credits
 Made with ❤️ by [Linda Ochwada](https://www.linkedin.com/in/ochwada-l-66630a36/)
 
