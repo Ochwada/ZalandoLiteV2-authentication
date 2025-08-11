@@ -107,13 +107,14 @@ Variable Reference
 
 
 ## API Endpoints
-| Method | Endpoint                       | Auth Required | Description                                                          |
-|--------|--------------------------------|---------------|----------------------------------------------------------------------|
-| `GET`  | `/`                            | ❌ No          | Public home page (renders `home.html`)                               |
-| `GET`  | `/my_login`                    | ❌ No          | Custom login page (renders `my_login.html` if defined)               |
-| `GET`  | `/dashboard`                   | ✅ Yes         | User dashboard after successful login (renders `dashboard.html`)     |
-| `GET`  | `/oauth2/authorization/google` | ❌ Redirect    | Triggers Google OAuth2 login via Spring Security                     |
-| `GET`  | `/internal/token`              | ✅ Yes         | Internal endpoint to get the authenticated user's raw ID Token (JWT) |
+| Method | Endpoint                       | Auth Required | Description                                                                                           |
+|--------|--------------------------------|---------------|-------------------------------------------------------------------------------------------------------|
+| `GET`  | `/`                            | ❌ No          | Public home page (renders `home.html`)                                                                |
+| `GET`  | `/my_login`                    | ❌ No          | Custom login page (renders `my_login.html` if defined)                                                |
+| `GET`  | `/dashboard`                   | ✅ Yes         | User dashboard after successful login (renders `dashboard.html`)                                      |
+| `GET`  | `/oauth2/authorization/google` | ❌ Redirect    | Triggers Google OAuth2 login via Spring Security                                                      |
+| `GET`  | `/internal/token`              | ✅ Yes         | Internal endpoint to get the authenticated user's raw ID Token (JWT)                                  |
+| `GET`  | `/auth/me`                     | ✅ Yes         | Return the current user (Google ID token required) **Auth:** `Authorization: Bearer <GOOGLE_ID_TOKEN> |`
                        
 
 

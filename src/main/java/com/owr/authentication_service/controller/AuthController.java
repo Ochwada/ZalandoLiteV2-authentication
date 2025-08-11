@@ -4,12 +4,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Map;
+import java.util.Objects;
 /*=================================================================================
  * Project: authentication-service
  * File: AuthController
@@ -94,6 +98,30 @@ public class AuthController {
         }
 
         return user.getIdToken().getTokenValue();
+    }
+
+    /**
+     * Returns information about the currently authenticated user.
+     *
+     * <p>Expects a valid Google ID token in the
+     * {@code Authorization: Bearer <ID_TOKEN>} header. The token is verified by the
+     * Spring Security OAuth2 Resource Server (issuer: {@code https://accounts.google.com})
+     * and the audience is validated against your Google Client ID.</p>
+
+     * @return immutable map containing {@code sub}, {@code email}, {@code name}, {@code expiresAt}
+     * @response 200 OK when the token is valid
+     * @response 401 Unauthorized when the token is missing/invalid/expired
+     */
+    @GetMapping("/me")
+    public Map<String, Object> me(@AuthenticationPrincipal Jwt jwt){
+        assert jwt.getExpiresAt() != null;
+
+        return Map.of(
+                "sub", jwt.getSubject(),
+                "email", jwt.getClaimAsString("email"),
+                "name", jwt.getClaimAsString("name"),
+                "expiresAt", jwt.getExpiresAt()
+        );
     }
 
 }
