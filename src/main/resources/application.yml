@@ -8,7 +8,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: ${SPRING_DATA_MONGODB_URI:mongodb://localhost:27017/authdb}
+      uri: #${SPRING_DATA_MONGODB_URI:mongodb://localhost:27017/authdb}
   security:
     oauth2:
           client:
@@ -26,7 +26,7 @@ spring:
                    # Access to the user's email address
                     - email
                 # The callback URI after successful login.html
-                redirect-uri: http://localhost:9080/login/oauth2/code/google
+                redirect-uri: http://nunua.duckdns.org/login/oauth2/code/google # http://localhost:9080/login/oauth2/code/google
 
             provider:
               google:
