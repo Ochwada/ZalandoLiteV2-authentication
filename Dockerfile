@@ -27,7 +27,8 @@ RUN mvn -B -q -DskipTests dependency:go-offline
 COPY src/ ./src/
 
 # Build the application (skipping tests for faster build)
-RUN ./mvnw clean package -DskipTests
+#RUN ./mvnw clean package -DskipTests
+RUN mvn -B -DskipTests package
 
 # ========================
 # 2. RUN STAGE
