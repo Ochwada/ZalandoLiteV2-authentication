@@ -3,13 +3,10 @@
 # --------------------------------------------------------------------------
 server:
   # The port on which the OAuth2 microservice will run
-  port: ${SERVER_PORT:9080}
+  port: 9080
   forward-headers-strategy: framework
 
 spring:
-  data:
-    mongodb:
-      uri: #${SPRING_DATA_MONGODB_URI:mongodb://localhost:27017/authdb}
   security:
     oauth2:
           client:

@@ -9,7 +9,6 @@ services:
     restart: unless-stopped
     networks:
       - zalando-backend
-
 networks:
   zalando-backend:
     external: true
