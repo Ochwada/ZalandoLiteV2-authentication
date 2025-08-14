@@ -24,7 +24,7 @@ spring:
                    # Access to the user's email address
                     - email
                 # The callback URI after successful login.html
-                redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}" # http://localhost:9080/login/oauth2/code/google
+                redirect-uri: "{baseUrl}/login/oauth2/authorization/{registrationId}" # http://localhost:9080/login/oauth2/code/google
 
             provider:
               google:
