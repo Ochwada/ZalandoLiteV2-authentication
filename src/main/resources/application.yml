@@ -4,6 +4,7 @@
 server:
   # The port on which the OAuth2 microservice will run
   port: ${SERVER_PORT:9080}
+  forward-headers-strategy: framework
 
 spring:
   data:
